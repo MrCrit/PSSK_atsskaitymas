@@ -28,9 +28,10 @@
     <h2>Add share Value:</h2>
     <h:form>
         <h:inputText value="#{shareValues.shareValueToCreate.shareDivision}" required="true" />
-        <br></br>
+        <br/>
         <h:inputText value="#{shareValues.shareValueToCreate.shareWinnings}" required="true" />
         <h:commandButton value="Add new Share value" action="#{shareValues.createShareValue}" />
     </h:form>
+    <h:link outcome="myBatis/index" value="Back to mainBatis page"/>
 </h:body>
 </html>

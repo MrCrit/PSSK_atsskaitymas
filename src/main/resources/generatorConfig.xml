@@ -4,18 +4,26 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="PlayersDB" targetRuntime="MyBatis3Simple">
+    <context id="LotteryDB" targetRuntime="MyBatis3Simple">
         <jdbcConnection driverClass="org.h2.Driver"
                         connectionURL="jdbc:h2:~/h2database/LotteryDB;AUTO_SERVER=TRUE"
                         userId="as"
                         password="as">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="vu.lt.mybatis.model" targetProject="MAVEN" />
+        <javaModelGenerator targetPackage="tomasn.lottery.mybatis.model" targetProject="MAVEN" />
 
-        <sqlMapGenerator targetPackage="vu.lt.usecases.mybatis.xml" targetProject="MAVEN" />
-        <javaClientGenerator type="XMLMAPPER" targetPackage="vu.lt.mybatis.dao" targetProject="MAVEN" />
+        <sqlMapGenerator targetPackage="tomasn.lottery.usecases.mybatis.xml" targetProject="MAVEN" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="tomasn.lottery.mybatis.dao" targetProject="MAVEN" />
 
-
+        <table schema="public" tableName="draw">
+            <generatedKey column="draw_id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="share_value">
+            <generatedKey column="share_value_id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="ticket">
+            <generatedKey column="ticket_id" identity="true" sqlStatement="JDBC" />
+        </table>
     </context>
 </generatorConfiguration>
