@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>
+        Tickets for draw #{tickets.draw.id}:</h2>
+    <ol>
+        <ui:repeat value="#{tickets.draw.tickets}" var="ticket">
+            <li>
+                #{ticket.id} - #{ticket.numbers}
+            </li>
+        </ui:repeat>
+    </ol>
+    <h2>
+        Share values for draw:
+    </h2>
+    <ol>
+        <ui:repeat value="#{tickets.draw.shareValues}" var="shares">
+            <li>
+                #{shares.shareDivision} | #{shares.shareWinnings}
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <label for="numbers">numbers: </label>
+        <h:inputText id="numbers" a:placeholder="1 2 3 4 5" value="#{tickets.ticketToCreate.numbers}" required="true" />
+        <br/>
+        <h:commandButton value="Add Ticket to draw" action="#{tickets.createTicket}" >
+            <f:param name="drawId" value="#{tickets.draw.id}" />
+        </h:commandButton>
+    </h:form>
+    <h2>Available Share values:</h2>
+    <ui:repeat value="#{shareValues.allShareValues}" var="share">
+        <li>
+            #{share.shareDivision} : #{share.shareWinnings}
+            <h:form>
+                <h:commandButton value="Add Share value to draw" action="#{tickets.addShare(share.id)}" >
+                    <f:param name="drawId" value="#{tickets.draw.id}" />
+                </h:commandButton>
+            </h:form>
+        </li>
+
+    </ui:repeat>
+    <h:link outcome="index" value="Back to main page"/>
+</h:body>
+</html>

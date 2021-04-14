@@ -5,7 +5,32 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<h:head/>
+<h:body>
+    <h2>Draws:</h2>
+    <ol>
+        <ui:repeat value="#{draws.allDraws}" var="draw">
+            <li>#{draw.id} - #{draw.numbers} | <h:link value="to tirazas" outcome="tickets?drawId=#{draw.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <br></br>
+    <h2>Share values:</h2>
+    <ol>
+        <ui:repeat value="#{shareValues.allShareValues}" var="share">
+            <li>#{share.shareDivision} : #{share.shareWinnings}</li>
+        </ui:repeat>
+    </ol>
+    <h2>Add draw:</h2>
+    <h:form>
+        <h:inputText value="#{draws.drawToCreate.numbers}" required="true" />
+        <h:commandButton value="Add new Draw" action="#{draws.createDraw()}" />
+    </h:form>
+    <h2>Add share Value:</h2>
+    <h:form>
+        <h:inputText value="#{shareValues.shareValueToCreate.shareDivision}" required="true" />
+        <br></br>
+        <h:inputText value="#{shareValues.shareValueToCreate.shareWinnings}" required="true" />
+        <h:commandButton value="Add new Share value" action="#{shareValues.createShareValue}" />
+    </h:form>
+</h:body>
 </html>

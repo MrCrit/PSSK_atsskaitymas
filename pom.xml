@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>lt.mif.vu</groupId>
-    <artifactId>java-ee-practice</artifactId>
+    <groupId>tomasn.lotery</groupId>
+    <artifactId>LotterySys</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>java-ee-practice Maven Webapp</name>
+    <name>LotterySys Maven Webapp</name>
     <url>http://www.example.com</url>
 
     <properties>
@@ -51,7 +51,7 @@
     </dependencies>
 
     <build>
-        <finalName>java-ee-practice</finalName>
+        <finalName>LotterySys</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
@@ -59,7 +59,7 @@
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
                     <version>1.4.0</version>
                     <configuration>
-                        <contexts>PlayersDB</contexts>
+                        <contexts>LotteryDB</contexts>
                         <verbose>true</verbose>
                     </configuration>
                     <executions>

@@ -1,4 +1,4 @@
-package vu.lt.persistence;
+package tomasn.lottery.persistence;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
